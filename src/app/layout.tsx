@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 
+import QueryProvider from "#/app/query-provider";
+
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"]
@@ -26,7 +28,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}>{children}</body>
+            <body className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}>
+                <QueryProvider>{children}</QueryProvider>
+            </body>
         </html>
     );
 }
